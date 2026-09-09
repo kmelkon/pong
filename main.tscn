@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://dv1uuf8ekm2l5"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_xtgog"]
+a = Vector2(0, 18)
+b = Vector2(1920, 18)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_a512i"]
+a = Vector2(0, 1060)
+b = Vector2(1920, 1060)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a512i"]
+size = Vector2(239, 38.75)
+
+[node name="Main" type="Node2D" unique_id=2047743787]
+
+[node name="TopBorderWrapper" type="StaticBody2D" parent="." unique_id=1749080899]
+
+[node name="TopBorder" type="Line2D" parent="TopBorderWrapper" unique_id=1465430789]
+position = Vector2(0, 8)
+points = PackedVector2Array(0, 3, 1920, 3)
+width = 20.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopBorderWrapper" unique_id=1067412368]
+shape = SubResource("SegmentShape2D_xtgog")
+one_way_collision = true
+
+[node name="BottomBorderWrapper" type="StaticBody2D" parent="." unique_id=1128245373]
+
+[node name="BottomBorder" type="Line2D" parent="BottomBorderWrapper" unique_id=453062391]
+position = Vector2(1, 1066)
+points = PackedVector2Array(0, 3, 1920, 3)
+width = 20.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomBorderWrapper" unique_id=1197250360]
+shape = SubResource("SegmentShape2D_a512i")
+one_way_collision = true
+
+[node name="RightPaddle" type="CharacterBody2D" parent="." unique_id=477490827]
+position = Vector2(1865, 540)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightPaddle" unique_id=783637481]
+rotation = -1.5707964
+shape = SubResource("RectangleShape2D_a512i")
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="RightPaddle" unique_id=360624083]
+offset_left = -20.0
+offset_top = -120.0
+offset_right = 20.0
+offset_bottom = 120.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+metadata/_edit_group_ = true
+
+[node name="LeftPaddle" type="CharacterBody2D" parent="." unique_id=1485698994]
+position = Vector2(55, 540)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftPaddle" unique_id=1644209701]
+rotation = -1.5707964
+shape = SubResource("RectangleShape2D_a512i")
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="LeftPaddle" unique_id=809139436]
+offset_left = -20.0
+offset_top = -120.0
+offset_right = 20.0
+offset_bottom = 120.0
+size_flags_horizontal = 8
+metadata/_edit_group_ = true
