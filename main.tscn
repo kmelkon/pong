@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://dv1uuf8ekm2l5"]
 
+[ext_resource type="Script" uid="uid://d2m08xbn7i5sa" path="res://ball.gd" id="1_ig7tw"]
+
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_xtgog"]
 a = Vector2(0, 18)
 b = Vector2(1920, 18)
@@ -10,6 +12,9 @@ b = Vector2(1920, 1060)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a512i"]
 size = Vector2(239, 38.75)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a512i"]
+radius = 20.0
 
 [node name="Main" type="Node2D" unique_id=2047743787]
 
@@ -67,3 +72,12 @@ offset_right = 20.0
 offset_bottom = 120.0
 size_flags_horizontal = 8
 metadata/_edit_group_ = true
+
+[node name="Ball" type="CharacterBody2D" parent="." unique_id=141131619]
+position = Vector2(949, 567)
+script = ExtResource("1_ig7tw")
+radius = 20.0
+circle_color = Color(0.8158657, 0, 0.4263175, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball" unique_id=284262274]
+shape = SubResource("CircleShape2D_a512i")
