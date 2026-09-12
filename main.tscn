@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://dv1uuf8ekm2l5"]
 
+[ext_resource type="Script" uid="uid://ce7juclr8g25b" path="res://right_paddle.gd" id="1_0xm2m"]
 [ext_resource type="Script" uid="uid://d2m08xbn7i5sa" path="res://ball.gd" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://dfv4ub26wj188" path="res://left_paddle.gd" id="2_h2yge"]
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_xtgog"]
 a = Vector2(0, 18)
@@ -42,6 +44,7 @@ one_way_collision = true
 
 [node name="RightPaddle" type="CharacterBody2D" parent="." unique_id=477490827]
 position = Vector2(1865, 540)
+script = ExtResource("1_0xm2m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightPaddle" unique_id=783637481]
 rotation = -1.5707964
@@ -59,6 +62,7 @@ metadata/_edit_group_ = true
 
 [node name="LeftPaddle" type="CharacterBody2D" parent="." unique_id=1485698994]
 position = Vector2(55, 540)
+script = ExtResource("2_h2yge")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftPaddle" unique_id=1644209701]
 rotation = -1.5707964
