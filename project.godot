@@ -22,6 +22,14 @@ window/size/viewport_height=1080
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[global_group]
+
+paddles=""
+borders=""
+goals=""
+leftGoal=""
+rightGoal=""
+
 [input]
 
 p1_up={

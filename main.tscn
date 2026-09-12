@@ -19,10 +19,13 @@ size = Vector2(239, 38.75)
 [sub_resource type="CircleShape2D" id="CircleShape2D_a512i"]
 radius = 20.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xtgog"]
+size = Vector2(50, 1066)
+
 [node name="Main" type="Node2D" unique_id=2047743787]
 script = ExtResource("1_1bvp3")
 
-[node name="TopBorderWrapper" type="StaticBody2D" parent="." unique_id=1749080899]
+[node name="TopBorderWrapper" type="StaticBody2D" parent="." unique_id=1749080899 groups=["borders"]]
 
 [node name="TopBorder" type="Line2D" parent="TopBorderWrapper" unique_id=1465430789]
 position = Vector2(0, 8)
@@ -31,9 +34,8 @@ width = 20.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TopBorderWrapper" unique_id=1067412368]
 shape = SubResource("SegmentShape2D_xtgog")
-one_way_collision = true
 
-[node name="BottomBorderWrapper" type="StaticBody2D" parent="." unique_id=1128245373]
+[node name="BottomBorderWrapper" type="StaticBody2D" parent="." unique_id=1128245373 groups=["borders"]]
 
 [node name="BottomBorder" type="Line2D" parent="BottomBorderWrapper" unique_id=453062391]
 position = Vector2(1, 1066)
@@ -41,10 +43,10 @@ points = PackedVector2Array(0, 3, 1920, 3)
 width = 20.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BottomBorderWrapper" unique_id=1197250360]
+position = Vector2(-1, 0)
 shape = SubResource("SegmentShape2D_a512i")
-one_way_collision = true
 
-[node name="RightPaddle" type="CharacterBody2D" parent="." unique_id=477490827]
+[node name="RightPaddle" type="CharacterBody2D" parent="." unique_id=477490827 groups=["paddles"]]
 position = Vector2(1865, 540)
 script = ExtResource("1_0xm2m")
 
@@ -62,7 +64,7 @@ size_flags_horizontal = 0
 size_flags_vertical = 0
 metadata/_edit_group_ = true
 
-[node name="LeftPaddle" type="CharacterBody2D" parent="." unique_id=1485698994]
+[node name="LeftPaddle" type="CharacterBody2D" parent="." unique_id=1485698994 groups=["paddles"]]
 position = Vector2(55, 540)
 script = ExtResource("2_h2yge")
 
@@ -88,3 +90,20 @@ circle_color = Color(0.8158657, 0, 0.4263175, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ball" unique_id=284262274]
 shape = SubResource("CircleShape2D_a512i")
+
+[node name="LeftGoal" type="Area2D" parent="." unique_id=200309203 groups=["leftGoal"]]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftGoal" unique_id=1936834309]
+position = Vector2(-35, 543)
+shape = SubResource("RectangleShape2D_xtgog")
+
+[node name="RightGoal" type="Area2D" parent="." unique_id=580543523 groups=["rightGoal"]]
+unique_name_in_owner = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightGoal" unique_id=1606167159]
+position = Vector2(1960, 543)
+shape = SubResource("RectangleShape2D_xtgog")
+
+[connection signal="body_entered" from="LeftGoal" to="Ball" method="_on_left_goal_body_entered"]
+[connection signal="body_entered" from="RightGoal" to="Ball" method="_on_right_goal_body_entered"]
