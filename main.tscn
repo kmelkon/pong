@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dv1uuf8ekm2l5"]
 
 [ext_resource type="Script" uid="uid://ce7juclr8g25b" path="res://right_paddle.gd" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://dvo8qc6y3y1ly" path="res://main.gd" id="1_1bvp3"]
 [ext_resource type="Script" uid="uid://d2m08xbn7i5sa" path="res://ball.gd" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://dfv4ub26wj188" path="res://left_paddle.gd" id="2_h2yge"]
 
@@ -19,6 +20,7 @@ size = Vector2(239, 38.75)
 radius = 20.0
 
 [node name="Main" type="Node2D" unique_id=2047743787]
+script = ExtResource("1_1bvp3")
 
 [node name="TopBorderWrapper" type="StaticBody2D" parent="." unique_id=1749080899]
 
@@ -78,6 +80,7 @@ size_flags_horizontal = 8
 metadata/_edit_group_ = true
 
 [node name="Ball" type="CharacterBody2D" parent="." unique_id=141131619]
+unique_name_in_owner = true
 position = Vector2(949, 567)
 script = ExtResource("1_ig7tw")
 radius = 20.0
